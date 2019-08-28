@@ -19,23 +19,23 @@ console.log('a,b,c:', a, b, c);
 
 //3.越过解析
 let [a, , b] = [1, 2, 3];
-console.log('a:', a);
-console.log('b:', b);
+console.log('a:', a); //=>1
+console.log('b:', b); //=>3
 
 //4.配合展开运算符  ...d是配合展开运算符，后面可以跟很多东西。
 let [a, [b, ...d], c] = [4, [5, 9, 10], 6];
 console.log('a:', a);
 console.log('b:', b);
 console.log('c:', c);
-console.log('d:', d);
+console.log('d:', d); //d: [ 9, 10 ]
 //5,如果解构不成功，变量的值就等于undefined。
 let [a, b] = [1];
 console.log('a:', a);
-console.log('b:', b);
+console.log('b:', b); //b: undefined
 
 //6.不完全解构
 let [a, [b], c] = [4, [5, 9, 10], 6];
-console.log('a,b,c:', a, b, c);
+console.log('a,b,c:', a, b, c); //a,b,c: 4 5 6
 
 //7.数组的解构赋值：如果等号的右边不是数组或者可以遍历的数据类型，那么将会报错。(除了字符串和可以遍历的对象类型)。
 
@@ -51,7 +51,7 @@ console.log('b:', b);
 let [a = 9, b = 5, c = 8] = [1, 2];
 console.log('a:', a);
 console.log('b:', b);
-console.log('c:', c);
+console.log('c:', c); //c: 8
 
 //9.当一个数组成员严格等于undefined，默认值才会生效
 
@@ -62,3 +62,8 @@ console.log('b:', b); //=>3
 let [a = 9, b = a] = [1, undefined];
 console.log('a:', a); //=>1
 console.log('b:', b); //=>1
+
+let a = { m: 1, n: 2, s: 4 };
+console.log({
+    ...a
+}); //{ m: 1, n: 2, s: 4 } //对象可以被展开 但是必须在一个可以承载对象的环境内展开，才行。否则不可以展开。

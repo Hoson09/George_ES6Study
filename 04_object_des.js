@@ -49,3 +49,7 @@ console.log('a:', a); //=>1
 console.log('b:', b); //=>2
 console.log('c:', c); //=>3
 console.log('d:', d); //=>undefined
+
+//过点：
+let { a } = { a: [1, 2, 3] };
+console.log(a); //[ 1, 2, 3 ]

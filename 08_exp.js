@@ -52,8 +52,8 @@ console.log(exp2.exec('2222-3333-aa'));
 //还支持解构赋值
 const exp2 = /(?<num1>\d+)(?<num2>-\d+-)/;
 let { groups: { num1, num2 } } = exp2.exec('2222-3333-aa');
-console.log(num1);
-console.log(num2);
+console.log(num1); //2222
+console.log(num2); //-3333-
 
 //6. 新增属性
 RegExp.prototype.flags //读取修饰符

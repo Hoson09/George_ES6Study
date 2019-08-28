@@ -5,7 +5,7 @@ console.log('b:', b);
 console.log('c:', c);
 //2.字符串当做对象来进行解构赋值(先转化成为一个包装对象然后再进行解构赋值)
 let { toString: s, 0: a, 1: b, 2: c, 3: d } = 'aicoder';
-console.log(s); //[Function: toString] s()会报错：TypeError: String.prototype.toString requires that 'this' be a String。因为这个只是一个简答的函数调用模式，this指向全局对象global。因为这个全局对象不是string格式，所以在方法内部调用上就有问题了。
+console.log(s); //[Function: toString]  s()会报错：TypeError: String.prototype.toString requires that 'this' be a String。因为这个只是一个简答的函数调用模式，函数运行的时候函数内部的this指向全局对象global。因为这个全局对象不是string格式，所以在方法内部调用上就有问题了。
 //具体实例：
 // var a = {
 //     show: function() {
@@ -24,8 +24,8 @@ console.log('d:', d); //o
 //3.number和boolean类型的解构赋值
 let { toString: s } = true;
 let { toString: m } = 123;
-console.log(s);
-console.log(m);
+console.log(s); //[Function: toString]
+console.log(m); //[Function: toString]
 
 //number和boolean都是先转化成一个包装对象然后解构赋值
 
@@ -35,7 +35,7 @@ function add([a, b]) {
     console.log('b:', b);
     return a + b;
 }
-console.log('add[1,2]:', add([1, 2]));
+console.log('add[1,2]:', add([1, 2])); //add[1,2]: 3
 //5.函数参数解构赋值带默认值
 function add([a = 10, b = 20]) {
     console.log('a:', a);
@@ -58,3 +58,10 @@ function add({ a = 1, b = 1 } = {}) {
     return a + b;
 }
 console.log(add()); //因为这个传入实参是空，所以在函数的形参内部是{a=1,b=1}={}=空相当于{a=1,b=1}={}这样a和b就使用默认值就行。
+
+//过点问题
+let [a, b, ...c] = 'asdafassfad';
+console.log('a:', a); //a: a
+console.log('b:', b); //b: s
+console.log('c:', c); //c: [ 'd', 'a', 'f', 'a', 's', 's', 'f', 'a', 'd' ]
+console.log('...c:', ...c); //...c: d a f a s s f a d

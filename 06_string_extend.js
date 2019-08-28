@@ -21,8 +21,8 @@ let b = '\172'; //八进制表示法
 let c = '\x7A'; //十六进制表示法
 let d = '\u007A'; //unicode制表示法
 let e = '\u{7A}'; //
-console.log('a:', a);
-console.log('b:', b);
+console.log('a:', a); //a: z
+console.log('b:', b); //b: z
 console.log('c:', c);
 console.log('d:', d);
 console.log('e:', e);
@@ -37,7 +37,7 @@ console.log(s.charCodeAt(1)); //57271，这个是十进制的第二个双字节�
 console.log(s.length); //因为生僻字超出范围所以字节长度是2.
 
 //6.String.fromCodePoint(num) 通过码点返回字符
-console.log(String.fromCodePoint('0x7a'));
+console.log(String.fromCodePoint('0x7a')); //=>z
 
 //7.字符串的遍历器接口，能正确识别超过大于0xffff码点范围的字符
 
