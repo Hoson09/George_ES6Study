@@ -226,6 +226,8 @@ let service ={
 
 ## 事件循环机制 
 
-## for of 与 for in的区别。
+## for of 与 for in的区别。 
+1. for in遍历可以遍历到对象的原型上的方法。
+2. for of遍历不能遍历到对象的原型上的方法。
 
 
